@@ -9,14 +9,14 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.challenge.api</groupId>
-	<artifactId>backend-challenge-3</artifactId>
+	<artifactId>backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>backend-challenge-3</name>
 	<description>Backend coding challenge</description>
 	<properties>
 		<java.version>11</java.version>
 		
-		 <start-class>com.challenge.api.BackendChallenge3Application</start-class>
+		 <start-class>com.challenge.api.Backend</start-class>
 	</properties>
 	<dependencies>
 		<dependency>

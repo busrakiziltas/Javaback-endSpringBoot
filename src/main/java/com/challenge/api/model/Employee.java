@@ -34,7 +34,7 @@ public class Employee {
 	@Column(name = "dob")
 	private Date dob;
 	@ManyToOne()
-	@JoinColumn(name = "fk_company", referencedColumnName = "id")
+	@JoinColumn(name = "company_id")
 	@JsonIgnore
 	private Company company;
 }

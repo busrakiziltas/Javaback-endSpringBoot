@@ -23,15 +23,17 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "company")
+@Table(name = "company") // hibernate fk Employee (company_id) fk_company
 public class Company {
+	//alanlar
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+
 	@Column(name = "name")
 	private String name;
-	@OneToMany(targetEntity = Employee.class, cascade = CascadeType.ALL)
-	@JoinColumn(name = "fk_company", referencedColumnName = "id")
+
+	@OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
 	private List<Employee> employees;
 }
 

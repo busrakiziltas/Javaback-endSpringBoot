@@ -15,16 +15,23 @@ import com.challenge.api.service.CompanyService;
 
   
 @Controller
-@RequestMapping("/company")
+@RequestMapping("/company") // company getmapping fonksiyonu
 public class CompanyController {
 	
 	@Autowired private CompanyService companyService;
-	@GetMapping("")
+	@GetMapping("") // "/tumEmplyees"
 	public String index(Model model) {
 		model.addAttribute("companies", companyService.companies());
 		return "company_index";
 	}
-	@RequestMapping(value = "/employees/{id}", method = RequestMethod.GET)
+	//@RequestMapping(value = "/employees/{id}", method = RequestMethod.GET)
+	/*
+		@RequestMapping(value = "" , method  = RequestMethod.PUT  > GUNCELLEMK ICIN
+															.DELETE > SILMEK
+															.POST > EKLEMEK
+	 */
+	@GetMapping("/employees/{id}")
+
 	public String companyEmployees(@PathVariable("id") int id, Model model) {
 		model.addAttribute("cName", companyService.getCompanyById(id).getName());
 		model.addAttribute("employees", companyService.companyEmployees(id));
@@ -40,6 +47,7 @@ public class CompanyController {
 		return "redirect:/company";
 	}
 	@GetMapping("/edit/{id}")
+	
 	public String editCompany(@PathVariable("id") int id, Model model) {
 		Company company = companyService.getCompanyById(id);
 		model.addAttribute("company", company);
